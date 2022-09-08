@@ -31,3 +31,4 @@ for _ in range (1, 3):
     sleep(15)
     
  print(equinor_price_dict)
+ print()
