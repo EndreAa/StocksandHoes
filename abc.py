@@ -22,7 +22,7 @@ for _ in range (1, 4):
 print(equinor_price_dict)
 
 # stock 2
-Telenor = 
+Telenor = {}
 
 
 
