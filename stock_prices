@@ -1,0 +1,26 @@
+import requests
+import pandas as pd
+
+url = "https://www.nordnet.no/api/2/instrument_search/query/stocklist"
+
+querystring = {"limit":"100"}
+
+payload = ""
+headers = {
+    "Accept-Language": "nb-NO,nb;q=0.9,no;q=0.8,nn;q=0.7,en-US;q=0.6,en;q=0.5",
+    "Connection": "keep-alive",
+    "Cookie": "cookie_consent=analytics^%^2Cfunctional^%^2Cmarketing^%^2Cnecessary; _ga=GA1.2.863647486.1662581641; nntheme=^%^7B^%^22a11y^%^22^%^3Atrue^%^2C^%^22dark^%^22^%^3A^%^22LIGHT^%^22^%^2C^%^22osPref^%^22^%^3A^%^22LIGHT^%^22^%^7D; _gid=GA1.2.1638324847.1662671857; NEXT=b7b9e3476c6720df43a173368e256bcda1adc5e5; JSESSIONID=943F4A5E708A04F43A35D306E5BC8B2B; webapp-cmse-next=^!VrqqymkrXKobBnGW6JGAaMFfxqh/bL1c+gncsQYLuzPUo1rXWtjY/bktHmZqjMotN09MiQLdD7p4acdXh5kuuxHWUkZPmXnSpyFSwGEenQ==; nnanon=2650e2a6ad2531270e8a7ed468ec9f140ad94b3d4f016e853d7d604cc7665bad; lang=no; _gac_UA-58430789-10=1.1662735604.Cj0KCQjwyOuYBhCGARIsAIdGQRMTJ_ipuuFteu4NfdHkgPy5EdAx5tN-E-erg49y5Hxdk-9JNpqWWc4aAjphEALw_wcB; INSTRUMENT_PAGE_SETTINGS=^%^7B^%^22selectedNewsTab^%^22^%^3A^%^5B0^%^5D^%^7D; _gat_UA-58430789-10=1; _csrf=l8vdeiP2CyRvUTYDDoiW2CsF",
+    "Referer": "https://www.nordnet.no/",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
+    "accept": "application/json",
+    "client-id": "NEXT",
+    "ntag": "b1a5f637-9117-4030-8b33-022220ee5405",
+    "sec-ch-ua": "^\^Google"
+}
+
+r = requests.request("GET", url, data=payload, headers=headers, params=querystring)
+
+print(r.json())
