@@ -1,27 +1,16 @@
-import re
-from unittest import result
-import requests
-from bs4 import BeautifulSoup as bs
-
-URL = "https://www.nordnet.no/market/stocks?sortField=turnover&sortOrder=desc&exchangeCountry=NO"
-result = requests.get(URL).text
-doc = bs(result, "html.parser")
-
-tbody = doc.find_all("tbody") #blir blokkert (?) spør Adi
-print(tbody)
-
-
-#################################################################
-
+#bibliotek
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
-from time import sleep
+import time
+
 
 URL = "https://www.nordnet.no/market/stocks?sortField=turnover&sortOrder=desc&exchangeCountry=NO"
+
+# stock 1
 equinor = "https://www.nordnet.no/market/stocks/16105420-equinor"
 equinor_price_dict = {}
-for _ in range (1, 3):
+for _ in range (1, 4):
     result = requests.get(equinor).text
     doc = BeautifulSoup(result, "html.parser")
     tbody = doc.find_all("span",\
@@ -30,5 +19,28 @@ for _ in range (1, 3):
     equinor_price_dict[datetime.now().strftime("%d/%m/%Y %H:%M:%S")] = tbody[0].text
     sleep(15)
     
- print(equinor_price_dict)
- print()
+print(equinor_price_dict)
+
+# stock 2
+Telenor = 
+
+
+
+
+
+
+
+Telenor_price_dict = {}
+
+
+# stock 3
+Norsk_hydro = ""
+Norsk_hydro_price_dict = {}
+
+# stock 4
+Kahoot = ""
+Kahoot_price_dict = {}
+
+# stock 5
+Yara = ""
+Yara_price_dict = {}
